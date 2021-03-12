@@ -1,0 +1,35 @@
+Tema 1 - Bow and Arrow
+In cadrul temei 1 se va implementa o versiune simplificata a jocului Bow and Arrow. Tot ce nu este specificat ramane la creativitatea voastra.
+
+Jucatorul
+Jucatorul va fi reprezentat doar prin arc si sageata. Sageata va fi creata prin combinarea a minim 2 primitive geometrice(ex: 
+triunghi, dreptunghi sau linie). Arcul va fi alcatuit dintr-o linie verticala si un arc de cerc.
+
+Tinte
+Obiectele in care jucatorul trebuie sa traga cu sageata vor fi de 2 feluri: baloane si shuriken. Baloanele vor fi create prin 
+combinarea a minim 2 primitive(ex: un cerc scalat diferit pe axele x si y si o polilinie). Acestea se vor deplasa ascendent pe 
+axa OY(vor aparea in partea de jos a scenei si vor urca). Baloanele vor fi de doua culori diferite: baloanele rosii- vor mari scorul, 
+baloanele galbene- vor micsora scorul la coliziunea cu sageata.
+Stelutele shuriken vor fi create prin combinarea a 4 triunghiuri. Ele se vor deplasa pe axa OX(vor aparea din partea dreapta a scenei 
+si se vor indrepta catre jucator). Stelutele vor fi animate - se vor roti in jurul centrului pe tot parcursul deplasarii.
+
+Gameplay
+Arcul jucatorului se afla in partea stanga a scenei. Arcul se poate deplasa doar pe axa OY, prin apasarea tastelor W, S. Directia
+de tragere a arcului se poate ajusta prin miscarea mouse-ului. Arcul va fi mereu rotit astfel incat sageata se va deplasa catre pozitia
+curenta a mouse-ului. Jucatorul va putea trage o sageata la cateva secunde. Viteza de deplasare a sagetii este determinata de timpul de 
+apasare al butonului mouse-ului. Cu cat butonul este apasat mai mult timp, cu atat viteza va fi mai mare, pana la o limita setata.
+Jucatorul va avea 3 vieti. La coliziunea dintre arc si un shuriken jucatorul va pierde o viata. La pierderea tuturor vietilor, jocul se va termina.
+Scorul va creste la coliziunea sagetii cu baloanele rosii sau shuriken. Scorul se va afisa periodic in consola sau se va ilustra pe ecran sub forma
+unui dreptunghi scalat (scorebar).
+
+Detalii de implementare
+Sagetile pot fi lansate doar catre partea dreapta a scenei.In momentul coliziunii sagetii cu un obiect se va declansa o animatie de 
+distrugere a obiectului(ex: balonul va fi scalat cu factor subunitar pana dispare de tot).
+Afisarea puterii de tragere se va realiza astfel: un dreptunghi amplasat sub jucator, care va fi scalat pe axa OX cat timp butonul 
+mouse-ului este tinut apasat.
+Coliziunea dintre sageata si obiectele tinta se va implementa prin testarea daca varful sagetii este inclus in cercul incadrator al 
+fiecarui obiect tinta.
+Coliziunea dintre shuriken si arcul jucatorului se va implementa prin testarea intersectiei cercurilor incadratoare ale obiectelor.
+Crearea mediului inconjurator trebuie sa se realizeze in asa fel incat consumul de memorie si timpul de redare sa fie optime. Nu creati 
+incontinuu obiecte care sa reprezinte obiectele tinta si sagetile care apar si dispar din spatiul de desenare!!!! O implementare eleganta este sa creati un singur obiect in functia init(), iar in functia Update() sa dati comanda de desenare pentru acel obiect de mai multe ori, de fiecare data la alta pozitie si cu alt factor de scalare.
+Toate animatiile trebuie sa fie independente de timpul de procesare al unui cadru.
